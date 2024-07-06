@@ -1,9 +1,9 @@
-import { Table, Column, Model, HasMany, DataType, AllowNull } from 'sequelize-typescript';
+import { Table, Column, Model, HasMany, DataType } from 'sequelize-typescript';
 import {Category} from './categoryModel';
 import {JournalEntry} from './journalEntryModel';
 
 @Table
-export class User extends Model<User>{
+export class User extends Model{
     @Column({
         type: DataType.STRING,
         allowNull: false,

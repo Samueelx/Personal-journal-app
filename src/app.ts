@@ -1,11 +1,14 @@
 import express from "express";
 import bodyParser, { json } from "body-parser";
 import sequelize from "./config/database";
-//import userRoutes from './routes/userRoutes';
+import userRoutes from './routes/userRoutes';
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 const app = express();
 app.use(bodyParser.json());
-//app.use('/api/users', userRoutes);
+app.use('/api/users', userRoutes);
 
 sequelize.sync().then(() => {console.log('Database Synced')})
 
