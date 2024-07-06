@@ -4,9 +4,9 @@ import { Category } from '../models/categoryModel';
 import { JournalEntry } from '../models/journalEntryModel';
 
 const sequelize = new Sequelize({
-    database: 'journals',
+    database: process.env.DB_NAME,
     dialect: 'postgres',
-    username: 'pimo',
+    username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     models: [User, Category, JournalEntry]
 });
