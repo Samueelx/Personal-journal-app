@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 
-const JWT_TOKEN = process.env.JWT_TOKEN as string;
+const JWT_SECRET = process.env.JWT_SECRET as string;
 
 export const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
     const authHeader = req.headers['authorization'];
@@ -11,7 +11,7 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
 
     if(token == null) return res.sendStatus(401);
 
-    jwt.verify(token, JWT_TOKEN, (err, user) => {
+    jwt.verify(token, JWT_SECRET, (err, user) => {
         if(err) {
             console.log(err)
             return res.sendStatus(403)
