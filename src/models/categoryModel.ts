@@ -1,4 +1,4 @@
-import { Table, Column, Model, ForeignKey, DataType, BelongsTo, HasMany } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, DataType, BelongsTo, HasMany, CreatedAt } from 'sequelize-typescript';
 import { User } from './userModel';
 import {JournalEntry} from './journalEntryModel';
 
@@ -16,6 +16,14 @@ export class Category extends Model{
         allowNull: false,
     })
     UserId!: number;
+
+    @CreatedAt
+    @Column({
+        type: DataType.DATE,
+        allowNull: false,
+        defaultValue: DataType.NOW,
+    })
+    createdAt?: Date;
 
     @BelongsTo(() => User)
     user!: User;
