@@ -3,7 +3,7 @@ import { User } from './userModel';
 import {JournalEntry} from './journalEntryModel';
 
 @Table
-export class Category extends Model<Category>{
+export class Category extends Model{
     @Column({
         type: DataType.STRING,
         allowNull: false,

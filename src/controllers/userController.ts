@@ -50,7 +50,7 @@ export const loginUser = async (req: Request, res: Response) => {
     console.log("Correct password")
     console.log("Secret Key", JWT_SECRET);
 
-    const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '6h' });
     console.log("Token generated", token);
 
     res.status(200).json({ token });
