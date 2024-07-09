@@ -102,4 +102,123 @@ http://localhost:3000
     Code: 200 OK
     Content: { "token": "jwt_token" }
 
+**Update User Details**:
+
+**URL**: ```/api/users/profile```   
+**Method**: ```PUT```   
+**Headers**:    ```Authorization: Bearer <token>```     
+**Body Parameters:**
+
+    {
+      "email": "user@example.com",
+      "username": "username",
+      "firstName": "First",
+      "lastName": "Last"
+    }
+
+**Success Response**:
+
+        Code: 200 OK
+        Content: { "message": "User details updated successfully" }
+
+
+
+### Journal Enries
+
+#### Create Journal Entry
+
+**URL**:    ```/api/journal```   
+**Method**:     ```POST```  
+**Headers**:     ```Authorization: Bearer <token>```     
+**Body Parameters**:    
+
+        {
+            "title": "Title",
+            "content": "Content",
+            "category": "Category",
+            "date": "MM-DD-YYYY"
+        }
+
+**Success Response**:
+
+    Code: 201 Created
+    Content: { "message": "Journal entry created successfully" }
+
+#### Get All Journal Entries
+
+**URL**: ```/api/journal```     
+**Method**:     ```GET```    
+**Headers**:    ```Authorization: Bearer <token>```         
+**Success Response**:
+
+    Code: 200 OK
+    Content: [{ "id": 1, "title": "Title", "content": "Content", "category": "Category", "date": "YYYY-MM-DD" }, ...]
+
+#### Update a Journal Entry
+
+**URL**:    ```/journal/:id```  
+**Method**:     ```PUT```   
+**Headers**:    ``` Authorization: Bearer <token>```    
+
+**Body Parameters**:
+
+    {
+      "title": "Updated Title",
+      "content": "Updated Content",
+      "category": "Updated Category",
+      "date": "YYYY-MM-DD"
+    }
+
+**Success Response**:
+
+
+        Code: 200 OK
+        Content: { "message": "Journal entry updated successfully" }
+
+#### Delete a Journal Entry
+
+**URL**:    ```/journal/:id```  
+**Method**:     ```DELETE```    
+**Headers**:    ```Authorization: Bearer <token>```     
+
+**Success Response**:
+
+    Code: 200 OK
+    Content: { "message": "Journal entry deleted successfully" }
+
+### Categories
+
+#### Create a Category
+
+**URL**:    ```/category```
+
+**Method**:     ```POST```
+
+**Headers**:    ```Authorization: Bearer <token>```
+
+**Body Parameters**:
+
+    {
+      "name": "Category Name"
+    }
+
+**Success Response**:
+
+        Code: 201 Created
+        Content: { "message": "Category created successfully" }
+
+#### Get All Categories
+
+**URL**:    ```/category``` 
+
+**Method**:     ```GET```
+
+**Headers**:        ``` Authorization: Bearer <token>```
+
+
+**Success Response**:
+
+        Code: 200 OK
+        Content: [{ "id": 1, "name": "Category Name", "userId": 1, "createdAt": "YYYY-MM-DD" }, ...]
+
 
