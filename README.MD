@@ -9,6 +9,7 @@ This repository contains the backend service for the Personal Journaling App, bu
 - [Database Setup](#database-setup)
 - [Running the Application](#running-the-application)
 - [API Documentation](#api-documentation)
+- [Frontend](#frontend)
 
 ## Getting Started
 
@@ -221,4 +222,7 @@ http://localhost:3000
         Code: 200 OK
         Content: [{ "id": 1, "name": "Category Name", "userId": 1, "createdAt": "YYYY-MM-DD" }, ...]
 
+## Frontend
+
+The frontend for this application is built using React, Tailwind, TypeScript, and axios. You can find the frontend repository [here](https://github.com/Samueelx/personal-journal-client).
 
