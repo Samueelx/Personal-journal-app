@@ -25,6 +25,22 @@ export const getJournalEntries = async (req: Request, res: Response) => {
         res.status(500).json({error: 'Failed to fetch journal entries'});
     }
 };
+export const getJournalEntryById = async(req: Request, res: Response) => {
+    const {id} = req.params;
+    //@ts-ignore
+    const userId = req.userId;
+
+    try {
+        const journalEntry = await JournalEntry.findOne({where: {id, userId}});
+        if(!journalEntry){
+            res.status(404).json({error: 'Journal Entry not found!'});
+        }
+        res.json(journalEntry);
+    } catch (error) {
+        res.status(500).json({error: 'Failed to fetch journal entry'});
+    }
+}
+
 
 export const updateJournalEntry = async (req: Request, res: Response) => {
     const {id} = req.params;
